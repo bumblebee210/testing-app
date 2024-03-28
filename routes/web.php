@@ -23,6 +23,3 @@ Route::get('/space',[App\Http\Controllers\SpaceController::class,'index'])->name
 Route::get('/list',[App\Http\Controllers\ListController::class,'index'])->name('list');
 Route::get('/tasks',[App\Http\Controllers\TasksController::class,'index'])->name('tasks');
 
-
-
-Route::post('webhook', [ZoomController::class, 'webhookHandler'])->name('webhookHandler');
