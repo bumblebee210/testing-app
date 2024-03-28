@@ -20,6 +20,12 @@ Route::get('/zoom', function () {
     return view('pages.scheduler');
 })->name('zoom');
 
+Route::get('/workspace',[App\Http\Controllers\WorkspaceController::class,'index'])->name('workspace');
+Route::get('/space',[App\Http\Controllers\SpaceController::class,'index'])->name('space');
+Route::get('/list',[App\Http\Controllers\ListController::class,'index'])->name('list');
+Route::get('/tasks',[App\Http\Controllers\TasksController::class,'index'])->name('tasks');
+
+
 Route::get('zoom/get_token', [ZoomController::class, 'get_token'])->name('get_token');
 Route::get('zoom/{id}', [ZoomController::class, 'get_meetings'])->name('get_meetings');
 Route::post('webhook', [ZoomController::class, 'webhookHandler'])->name('webhookHandler');
