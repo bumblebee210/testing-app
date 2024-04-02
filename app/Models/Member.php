@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Member extends Model
 {
     use HasFactory;
+
+    protected $table = 'members';
+    protected $fillabel = [
+        'user_id',
+        'username',
+        'color',
+        'profilePiture',
+    ];
 }

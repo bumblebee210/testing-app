@@ -18,8 +18,19 @@ Route::get('/', function () {
 });
 
 
-Route::get('/workspace',[App\Http\Controllers\WorkspaceController::class,'index'])->name('workspace');
+Route::get('/workspace/Getworkspace',[App\Http\Controllers\WorkspaceController::class,'getWorkspace'])->name('get');
+Route::get('/workspace/table_workspace',[App\Http\Controllers\WorkspaceController::class,'index'])->name('tableWorkspace');
+//Route::get('/team/{teamId}/space',[App\Http\Controllers\WorkspaceController::class,'getSpace'])->name('get_space');
+
 Route::get('/space',[App\Http\Controllers\SpaceController::class,'index'])->name('space');
+Route::get('/space/getspace',[App\Http\Controllers\SpaceController::class,'getSpace'])->name('get_space');
+
+Route::get('/space/spaceadd',[App\Http\Controllers\SpaceController::class,'add'])->name('add');
+Route::post('/space/spaceadd/createSpace',[App\Http\Controllers\SpaceController::class,'create'])->name('create_space');
+
+Route::get('/space/space_update/{id}',[App\Http\Controllers\SpaceController::class,'edit'])->name('editspace');
+
+
 Route::get('/list',[App\Http\Controllers\ListController::class,'index'])->name('list');
 Route::get('/tasks',[App\Http\Controllers\TasksController::class,'index'])->name('tasks');
 

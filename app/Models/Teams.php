@@ -9,9 +9,12 @@ class Teams extends Model
 {
     use HasFactory;
 
+    protected $table = 'teams';
     protected $fillabel = [
         'name',
         'color',
         'avatar',
+        'members',
     ];
+    protected $guarded = [];  
 }

@@ -8,7 +8,7 @@
                     <i class="fas fa-tachometer-alt col-3"></i>
                     Dashboard
                 </a>
-                <a class="nav-link {{ request()->is('/') ? 'active' : '' }}" href="{{route('workspace')}}">
+                <a class="nav-link {{ request()->is('/') ? 'active' : '' }}" href="{{route('tableWorkspace')}}">
                     <div class="sb-nav-link-icon"></div>
                     <i class="fa-solid fa-laptop-file col-3"></i>
                     Worksapace

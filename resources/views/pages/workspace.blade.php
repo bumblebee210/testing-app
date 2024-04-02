@@ -7,7 +7,7 @@
     <h5>Table- <span style="color:green">Work Space</span></h5>
   </div>
   <div class="card-body">
-    <table class="table table-striped">
+    <table class="table table-striped" >
       <thead>
         <tr>
           <th scope="col">#</th>
@@ -18,14 +18,16 @@
           
         </tr>
       </thead>
-      <tbody>
+      <tbody style="max-width: 100px;">
+        @foreach ($teams as $team)
         <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-          <td>Mark</td>
+          <td>{{$loop->iteration}}</td>
+          <td>{{$team->name}}</td>
+          <td>{{$team->color}}</td>
+          <td style="max-width: 500px;">{{$team->avatar}}</td>
+          <td>{{$team->members}}</td>
         </tr>
+        @endforeach
       </tbody>
     </table>
   </div>

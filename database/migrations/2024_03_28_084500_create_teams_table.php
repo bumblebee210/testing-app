@@ -17,8 +17,8 @@ class CreateTeamsTable extends Migration
             $table->id('id_teams');
             $table->string('name');
             $table->string('color');
-            $table->string('avatar');
-            $table->foreignId('members_id');
+            $table->longText('avatar');
+            $table->foreignId('members');
             $table->timestamps();
         });
     }

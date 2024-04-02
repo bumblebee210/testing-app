@@ -9,7 +9,13 @@ use Illuminate\Http\Request;
 
 class WorkspaceController extends Controller
 {
-    public function index()
+
+  public function index()
+  {
+    $teams = Teams::orderBy('id_teams')->get();
+    return view('pages.workspace', compact('teams'));
+  }
+    public function getWorkspace()
     {
       //return view('pages.workspace');
       /**
@@ -42,17 +48,18 @@ class WorkspaceController extends Controller
         
     }
 
+
     public function store($data)
     {
-
-      // dd($data);
       
-        foreach ($data['teams'] as $key => $value) {
-          $tabelMembers= Member::with('User')->get();
-          //dd($value['members']);
-          //dd($data);
+     $user_id=[];
+      //dd($data);
+        foreach ( $data['teams'] as $key => $value) {
+          //dd($data['members']);
+          
+          //Create table User
           foreach ($value['members'] as $key => $value_m) {
-          //  dd($value_m['user']);
+          //dd($value_m);
             $user = User::create([
               'username' => $value_m['user']['username'],
               'email' => $value_m['user']['email'],
@@ -65,18 +72,30 @@ class WorkspaceController extends Controller
               'date_joined' => $value_m['user']['date_joined'],
               'date_invited' => $value_m['user']['date_invited'],
             ]);
+            
+            array_push($user_id, $user['id']);
+
           }
-          
-          //dd($value['teams']);
-          // save workspace
+          $convert = implode(',', $user_id);
+           //Tutup table User   
+
+          //Create table Teams
           $team = Teams::create([
             'name' => $value['name'],
-            //['teams']['name'],
             'color' => $value['color'],
             'avatar' => $value['avatar'],
-            'members' => $value['members'],
+            'members' => $convert,
+            
           ]);
+           
+
+          //array_push($team_id, $team['id']);
+          //Tutup table Teams      
         }
+
+         //return redirect()->route('tableWorkspace');
         
     }
+
+    
 }
