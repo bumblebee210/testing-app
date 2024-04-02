@@ -34,6 +34,3 @@ Route::get('/space/space_update/{id}',[App\Http\Controllers\SpaceController::cla
 Route::get('/list',[App\Http\Controllers\ListController::class,'index'])->name('list');
 Route::get('/tasks',[App\Http\Controllers\TasksController::class,'index'])->name('tasks');
 
-
-
-Route::post('webhook', [ZoomController::class, 'webhookHandler'])->name('webhookHandler');
