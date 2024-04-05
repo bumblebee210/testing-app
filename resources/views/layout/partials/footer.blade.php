@@ -10,3 +10,9 @@
         </div>
     </div>
 </footer>
+
+<script>
+    
+    new DataTable('#example');
+
+</script>

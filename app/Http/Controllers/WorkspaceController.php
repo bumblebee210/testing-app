@@ -89,9 +89,11 @@ class WorkspaceController extends Controller
           ]);
            
 
+
           //array_push($team_id, $team['id']);
           //Tutup table Teams      
         }
+        dd($data);
 
          //return redirect()->route('tableWorkspace');
         

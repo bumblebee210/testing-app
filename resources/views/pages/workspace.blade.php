@@ -7,25 +7,25 @@
     <h5>Table- <span style="color:green">Work Space</span></h5>
   </div>
   <div class="card-body">
-    <table class="table table-striped" >
+    <table id="example" class="table table-striped" >
       <thead>
         <tr>
-          <th scope="col">#</th>
-          <th scope="col">Name</th>
-          <th scope="col">Color</th>
-          <th scope="col">Avatar</th>
-          <th scope="col">Members</th>
+          <th  style="text-align:center;">#</th>
+          <th  style="text-align:center;">Name</th>
+          <th  style="text-align:center;">Color</th>
+          <!-- <th scope="col">Avatar</th> -->
+          <th  style="text-align:center;">Members</th>
           
         </tr>
       </thead>
-      <tbody style="max-width: 100px;">
+      <tbody>
         @foreach ($teams as $team)
-        <tr>
-          <td>{{$loop->iteration}}</td>
+        <tr style="text-align:center;">
+          <td  style="text-align:center;">{{$loop->iteration}}</td>
           <td>{{$team->name}}</td>
           <td>{{$team->color}}</td>
-          <td style="max-width: 500px;">{{$team->avatar}}</td>
-          <td>{{$team->members}}</td>
+         <!--  <td style="max-width: 500px;">{{$team->avatar}}</td> -->
+          <td  style="text-align:center;">{{$team->members}}</td>
         </tr>
         @endforeach
       </tbody>

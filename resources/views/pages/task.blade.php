@@ -8,21 +8,23 @@
   </div>
   <!-- bagian card -->
   <div class="card-body">
+    <a href="{{route('add')}}">
     <button class="btn btn-primary"><i class="fa-solid fa-plus ml-5"></i> Add Tasks</button>
-    <table class="table table-striped mt-3">
+    </a>
+    <table id="example"class="table table-striped mt-3">
       <thead>
         <tr>
-          <th scope="col">#</th>
-          <th scope="col">Name</th>
-          <th scope="col">Color</th>
-          <th scope="col">Avatar</th>
-          <th scope="col">Action</th>
+          <th  style="text-align:center;">#</th>
+          <th  style="text-align:center;">Name</th>
+          <th  style="text-align:center;">Color</th>
+          <th  style="text-align:center;">Avatar</th>
+          <th  style="text-align:center;">Action</th>
           
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">1</th>
+        <tr style="text-align:center;">
+          <th scope="row"  style="text-align:center;">1</th>
           <td>Mark</td>
           <td>Otto</td>
           <td>@mdo</td>
