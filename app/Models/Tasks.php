@@ -11,7 +11,7 @@ class Tasks extends Model
 
     protected $table = 'tasks';
     protected $fillabel = [
-
+            'id',
             'name',
             'custom_id',
             'custom_item_id',
@@ -25,20 +25,20 @@ class Tasks extends Model
             'date_closed',
             'date_done',
             'creator',
-            'assignees',
-            'watchers',
-            'checklists',
-            'tags',
+            // 'assignees',
+            // 'watchers',
+            // 'checklists',
+            // 'tags',
             'parent',
-            'priority',
+            //'priority',
             'due_date',
             'start_date',
             'time_estimate',
             'time_spent',
-            'custom_fields',
-            'list',
-            'folder',
-            'space'
+            // 'custom_fields',
+            // 'list',
+            // 'folder',
+            // 'space'
     ];
     protected $guarded = []; 
 }

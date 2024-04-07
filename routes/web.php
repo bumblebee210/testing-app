@@ -48,9 +48,16 @@ Route::put('/list/updatelist/{id}/simpan',[App\Http\Controllers\ListController::
 //Delete
 Route::get('/list/deletelist/{id}',[App\Http\Controllers\ListController::class,'destroy'])->name('delist');
 
-Route::get('/task/get_task', [App\Http\Controllers\TasksController::class,'gettask'])->name('taskget');
-Route::get('/task/add_task', [App\Http\Controllers\TasksController::class,'addtask'])->name('add');
-Route::post('/task/add_task/create', [App\Http\Controllers\TasksController::class,'create'])->name('createtask');
+Route::get('/tasks/get_task', [App\Http\Controllers\TasksController::class,'gettask'])->name('taskget');
+Route::get('/task/detail_tasks/{id}',[App\Http\Controllers\TasksController::class,'detailTask'])->name('detailtasks');
+
+Route::get('/tasks/add_task', [App\Http\Controllers\TasksController::class,'addtask'])->name('add');
+Route::post('/tasks/add_task/create', [App\Http\Controllers\TasksController::class,'create'])->name('createtask');
+
+Route::get('/tasks/update_task/{id}',[App\Http\Controllers\TasksController::class,'edit'])->name('updateTask');
+Route::put('/tasks/update_task/{id_tasks}/simpan',[App\Http\Controllers\TasksController::class,'updatetask'])->name('simpan_task');
+
+Route::get('/tasks/delete_tasks/{id}',[App\Http\Controllers\TasksController::class,'destroy'])->name('deltasks');
 // Route::get('/lists/createFolder', [App\Http\Controllers\listController::class,'addfolder'])->name('folder');
 // Route::post('/lists/createFolder/simpanFolder', [App\Http\Controllers\listController::class,'createfolder'])->name('folder_create');
 

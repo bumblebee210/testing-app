@@ -112,7 +112,7 @@ class ListController extends Controller
     }
     }
     public function store($data){
-      
+     // dd($data);
       $list = lists::create([
         'id'=>$data['id'],
         'name'=>$data['name'],

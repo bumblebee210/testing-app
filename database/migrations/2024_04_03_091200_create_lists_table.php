@@ -18,17 +18,17 @@ class CreateListsTable extends Migration
             $table->string('name');
             $table->integer('orderindex');
             $table->string('content');
-            $table->string('assignee');
-            $table->string('task_count');
+            //$table->string('assignee');
+            //$table->string('task_count');
             $table->integer('due_date');
             $table->string('start_date');
             $table->string('archived');
             $table->string('override_statuses');
             $table->string('permission_level');
-            $table->string('status_id');
-            $table->string('priority_id');
-            $table->string('folder_id');
-            $table->string('space_id');
+            //$table->string('status_id');
+            // $table->string('priority_id');
+            // $table->string('folder_id');
+            // $table->string('space_id');
             $table->timestamps();
         });
     }

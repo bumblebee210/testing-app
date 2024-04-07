@@ -14,7 +14,12 @@ class CreateCreatorsTable extends Migration
     public function up()
     {
         Schema::create('creators', function (Blueprint $table) {
-            $table->id();
+            $table->id('id');
+            $table->string('id_creator');
+            $table->string('username');
+            $table->string('color');
+            $table->string('email');
+            $table->longText('profilePicture');
             $table->timestamps();
         });
     }

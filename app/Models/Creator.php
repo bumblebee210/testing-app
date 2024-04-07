@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class creator extends Model
 {
     use HasFactory;
+    protected $table = 'creators';
+    protected $fillabel = [
+        'id_creator',
+        'username',
+        'color',
+        'email',
+        'profilePiture',
+    ];
+    protected $guarded = [];
 }
