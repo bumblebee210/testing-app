@@ -15,7 +15,11 @@ class WorkspaceController extends Controller
     $teams = Teams::orderBy('id_teams')->get();
     return view('pages.workspace', compact('teams'));
   }
-    public function getWorkspace()
+
+  
+
+
+  public function getWorkspace()
     {
       //return view('pages.workspace');
       /**
@@ -24,11 +28,12 @@ class WorkspaceController extends Controller
 
         $curl = curl_init();
 
+        //$url= $_GET["input_url"];
         curl_setopt_array($curl, [
           CURLOPT_HTTPHEADER => [
-            "Authorization: pk_84702088_YM5J05ATJWG4DWZSUPI2JRIC7M56HG0R"
+           "Authorization: pk_84702088_YM5J05ATJWG4DWZSUPI2JRIC7M56HG0R"
           ],
-          CURLOPT_URL => "https://api.clickup.com/api/v2/team",
+          CURLOPT_URL => "https://api.clickup.com/api/v2/team", 
           CURLOPT_RETURNTRANSFER => true,
           CURLOPT_CUSTOMREQUEST => "GET",
         ]);
@@ -44,6 +49,7 @@ class WorkspaceController extends Controller
           $response=json_decode($response,true);
           $save = $this->store($response);
           echo $save;
+           //dd ($response);
         }
         
     }
@@ -93,11 +99,22 @@ class WorkspaceController extends Controller
           //array_push($team_id, $team['id']);
           //Tutup table Teams      
         }
-        dd($data);
+       
+        //$get= $data['teams'];
+        //$work = ($get[0]);
+        //echo $get;
+        //dd($work['name']);
 
-         //return redirect()->route('tableWorkspace');
+        //return view('work.get', compact('work'));
+         return redirect()->route('tableWorkspace');
         
     }
+
+    public function get($data)
+  {
+    dd($data);
+    
+  }
 
     
 }

@@ -36,13 +36,13 @@
           <td style="text-align:center;">{{$item->status}}</td>
           <td style="text-align:center;">{{$item->orderindex}}</td>
           <td>
-            <a href="{{route('detailtasks', $item->id)}}" style="text-decoration:none;">
+            <a href="{{route('detailtasks', $item->id)}}" style="text-decoration: none;">
               <botton class="btn btn-secondary"><i class="fa-solid fa-magnifying-glass"></i></botton>
             </a>
-            <a href="{{route('updateTask', $item->id)}}" style="text-decoration:none;">
+            <a href="{{route('updateTask', $item->id)}}" style="text-decoration: none;">
               <botton class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></botton>
             </a>
-            <a href="{{route('deltasks', $item->id)}}" style="text-decoration:none;">
+            <a href="{{route('deltasks', $item->id)}}" style="text-decoration: none;">
               <botton class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></botton>
             </a>
             

@@ -19,8 +19,11 @@ Route::get('/', function () {
 
 
 //Route bagian Workspace
-Route::get('/workspace/Getworkspace',[App\Http\Controllers\WorkspaceController::class,'getWorkspace'])->name('get');
+Route::get('/workspace/Getworkspace',[App\Http\Controllers\WorkspaceController::class,'get'])->name('getwork');
+Route::get('/workspace/Getworkspace/get',[App\Http\Controllers\WorkspaceController::class,'getWorkspace'])->name('getspace');
 Route::get('/workspace/table_workspace',[App\Http\Controllers\WorkspaceController::class,'index'])->name('tableWorkspace');
+//Route::get('/workspace/Getworkspace/Simpan',[App\Http\Controllers\WorkspaceController::class,'store'])->name('simpanget');
+
 
 //Route bagian Space
 Route::get('/space',[App\Http\Controllers\SpaceController::class,'index'])->name('space');
@@ -48,16 +51,19 @@ Route::put('/list/updatelist/{id}/simpan',[App\Http\Controllers\ListController::
 //Delete
 Route::get('/list/deletelist/{id}',[App\Http\Controllers\ListController::class,'destroy'])->name('delist');
 
+//Route bagian tasks
 Route::get('/tasks/get_task', [App\Http\Controllers\TasksController::class,'gettask'])->name('taskget');
 Route::get('/task/detail_tasks/{id}',[App\Http\Controllers\TasksController::class,'detailTask'])->name('detailtasks');
-
+//Create
 Route::get('/tasks/add_task', [App\Http\Controllers\TasksController::class,'addtask'])->name('add');
 Route::post('/tasks/add_task/create', [App\Http\Controllers\TasksController::class,'create'])->name('createtask');
-
+//Update
 Route::get('/tasks/update_task/{id}',[App\Http\Controllers\TasksController::class,'edit'])->name('updateTask');
 Route::put('/tasks/update_task/{id_tasks}/simpan',[App\Http\Controllers\TasksController::class,'updatetask'])->name('simpan_task');
-
+//Delete
 Route::get('/tasks/delete_tasks/{id}',[App\Http\Controllers\TasksController::class,'destroy'])->name('deltasks');
+
+
 // Route::get('/lists/createFolder', [App\Http\Controllers\listController::class,'addfolder'])->name('folder');
 // Route::post('/lists/createFolder/simpanFolder', [App\Http\Controllers\listController::class,'createfolder'])->name('folder_create');
 
