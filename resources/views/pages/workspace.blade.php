@@ -8,7 +8,7 @@
 
   </div>
   <div class="card-body">
-    <a href="{{route('getspace')}}"><button class="btn btn-primary"><i class="fa-solid fa-plus ml-5"></i> Get Workspace</button></a>
+    <a href="{{route('getspace')}}"><button class="btn btn-primary"><img src="{{asset('Icon/Hi-Fi/uil_sync.svg')}}" alt=""> Get Workspace</button></a>
     <table id="example" class="table table-striped" >
       <thead>
         <tr>

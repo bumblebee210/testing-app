@@ -89,7 +89,7 @@ class WorkspaceController extends Controller
           $team = Teams::create([
             'name' => $value['name'],
             'color' => $value['color'],
-            'avatar' => $value['avatar'],
+            'avatar' => $value['avatar'] = "-",
             'members' => $convert,
             
           ]);
