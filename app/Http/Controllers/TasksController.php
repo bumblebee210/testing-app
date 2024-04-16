@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Tasks;
 use App\Models\StatusTask;
 use App\Models\Creator;
+use App\Models\lists;
 use Illuminate\Http\Request;
 
 class TasksController extends Controller
@@ -21,8 +22,10 @@ class TasksController extends Controller
       return view('task.detail', compact('tasks'));
     }
 
-    public function addtask(){
-      return view('task.create');
+    public function addtask()
+    {
+      $List= lists::get();
+      return view('task.create', compact('List'));
     }
 
     public function gettask(){
@@ -34,7 +37,7 @@ class TasksController extends Controller
       // $custom_items = [];
      // $custom_fields=json_encode([]);
       
-      $listId = "901801273316";
+      $listId = $_POST['input_id']; //"901801273316";
       // $query = array(
       //   "archived" => "false",
       //   "include_markdown_description" => "true",

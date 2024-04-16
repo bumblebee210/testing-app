@@ -11,6 +11,7 @@ class Teams extends Model
 
     protected $table = 'teams';
     protected $fillabel = [
+        'team_id',
         'name',
         'color',
         'avatar',

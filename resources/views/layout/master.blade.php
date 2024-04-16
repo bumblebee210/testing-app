@@ -4,6 +4,12 @@
         @include('layout.partials.head')
     </head>
     <body class="sb-nav-fixed">
+        
+        <div id="loading-screen" class="loading-screen">
+            <div class="loading-spinner"></div>
+        </div>
+
+
         @include('layout.partials.top_nav')
         <div id="layoutSidenav">
             @include('layout.partials.side_nav')

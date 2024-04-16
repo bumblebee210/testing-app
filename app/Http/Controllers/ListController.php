@@ -61,7 +61,9 @@ class ListController extends Controller
     }
 
     public function addlist(){
-      return view('list.create');
+      $Space = Space::get();
+      //dd($Space);
+      return view('list.create',compact('Space'));
     }
 
     public function createList()
@@ -69,7 +71,7 @@ class ListController extends Controller
       /**
  * Requires libcurl
  */ 
-    $spaceId = "90180685587";
+    $spaceId = $_POST['input_id']; //"90180685587";
     
     $curl = curl_init();
 

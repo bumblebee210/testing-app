@@ -6,6 +6,7 @@ use App\Models\Teams;
 use App\Models\User;
 use App\Models\Member;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class WorkspaceController extends Controller
 {
@@ -46,21 +47,22 @@ class WorkspaceController extends Controller
         if ($error) {
           echo "cURL Error #:" . $error;
         } else {
-          $response=json_decode($response,true);
-          $save = $this->store($response);
-          echo $save;
+           $response=json_decode($response,true);
+           $save = $this->store($response);
+           echo $save;
            //dd ($response);
+          //echo $response;
         }
         
     }
 
 
-    public function store($data)
+    public function store(Request $request)
     {
       
      $user_id=[];
-      //dd($data);
-        foreach ( $data['teams'] as $key => $value) {
+      //dd($request);
+        foreach ( $request['teams'] as $key => $value) {
           //dd($data['members']);
           
           //Create table User
@@ -83,16 +85,36 @@ class WorkspaceController extends Controller
 
           }
           $convert = implode(',', $user_id);
-           //Tutup table User   
+           //Tutup table User
+
+           $this->validate([
+            'team_id' => 'unique:posts',
+            'name' => 'unique:posts|max:225',
+          ]);
+
+          // dd($validatedData);
+
+          // $validatedData = Validator::make($data->all(),[
+          //   'team_id' => 'unique:posts|array',
+          //   'name' => 'unique:posts|max:225|array',
+          // ]);
 
           //Create table Teams
           $team = Teams::create([
+            'team_id' => $value['id'],
             'name' => $value['name'],
             'color' => $value['color'],
             'avatar' => $value['avatar'] = "-",
             'members' => $convert,
             
           ]);
+
+          
+          // $team->validate([
+          //   'team_id' => 'unique:posts',
+          //   'name' => 'unique:posts|max:225',
+
+          // ]);
            
 
 

@@ -61,13 +61,19 @@ class SpaceController extends Controller
 
     public function add()
     {
-    	return view('space.create');
+
+    	$teams = Teams::get();
+		//dd($teams);
+    	return view('space.create', compact('teams'));
+
     }
 
     public function Create()
     {
-		    	
-		$teamId = "9018177798";
+		
+
+		$teamId = $_POST['input_id']; //"9018177798"
+		//dd($teamId);
 		$curl = curl_init();
 
 		$input_name = $_POST['input_name'];

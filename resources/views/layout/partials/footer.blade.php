@@ -16,3 +16,10 @@
     new DataTable('#example');
 
 </script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var loadingScreen = document.getElementById('loading-screen');
+        loadingScreen.style.display = 'none'; // Sembunyikan loading screen setelah halaman dimuat sepenuhnya
+    });
+</script>
