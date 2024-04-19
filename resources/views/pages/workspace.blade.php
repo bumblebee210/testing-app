@@ -30,6 +30,30 @@
           <td  style="text-align:center;">{{$team->members}}</td>
         </tr>
         @endforeach
+
+       <!--  @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif -->
+
+        <!-- resources/views/contoh.blade.php -->
+
+        @if($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+
       </tbody>
     </table>
   </div>

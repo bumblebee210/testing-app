@@ -20,7 +20,7 @@ class WorkspaceController extends Controller
   
 
 
-  public function getWorkspace()
+  public function getWorkspace(Request $request)
     {
       //return view('pages.workspace');
       /**
@@ -47,22 +47,31 @@ class WorkspaceController extends Controller
         if ($error) {
           echo "cURL Error #:" . $error;
         } else {
-           $response=json_decode($response,true);
-           $save = $this->store($response);
-           echo $save;
-           //dd ($response);
-          //echo $response;
-        }
-        
-    }
 
+        $response;
+        $response=json_decode($response,true); 
+        //dd($response);
+            //bagian create
+       // $data = Teams::all();
 
-    public function store(Request $request)
-    {
+         $validator = Validator::make($data->all(),[
+            'team_id' => 'unique:teams,team_id',
+            'name' => 'string|max:225',
+          ]);
+
+          if ($validator->fails()) {
+              return redirect('tableWorkspace')
+                ->withErrors($validator)
+                ->withInput();
+          }
       
-     $user_id=[];
+       // $request->validate(Teams::rules());
+
+        //try {
+
+        $user_id=[];
       //dd($request);
-        foreach ( $request['teams'] as $key => $value) {
+        foreach ( $response['teams'] as $key => $value) {
           //dd($data['members']);
           
           //Create table User
@@ -85,19 +94,10 @@ class WorkspaceController extends Controller
 
           }
           $convert = implode(',', $user_id);
-           //Tutup table User
 
-           $this->validate([
-            'team_id' => 'unique:posts',
-            'name' => 'unique:posts|max:225',
-          ]);
 
-          // dd($validatedData);
 
-          // $validatedData = Validator::make($data->all(),[
-          //   'team_id' => 'unique:posts|array',
-          //   'name' => 'unique:posts|max:225|array',
-          // ]);
+        
 
           //Create table Teams
           $team = Teams::create([
@@ -107,36 +107,115 @@ class WorkspaceController extends Controller
             'avatar' => $value['avatar'] = "-",
             'members' => $convert,
             
-          ]);
-
+          ]);   
           
-          // $team->validate([
-          //   'team_id' => 'unique:posts',
-          //   'name' => 'unique:posts|max:225',
+       return redirect()->route('tableWorkspace');
 
-          // ]);
-           
-
-
-          //array_push($team_id, $team['id']);
-          //Tutup table Teams      
         }
-       
-        //$get= $data['teams'];
-        //$work = ($get[0]);
-        //echo $get;
-        //dd($work['name']);
 
-        //return view('work.get', compact('work'));
-         return redirect()->route('tableWorkspace');
+        
+        //tutup create
+      // }catch(\Exception $e){
+      // // Tangani kasus duplikat atau kegagalan lainnya
+      // return redirect()->back()->withErrors(['msg' => 'Data sudah ada sebelumnya.'])->withInput();
+      // }
+      // return redirect()->route('tableWorkspace')->with('success', 'Data berhasil disimpan.');
+      //tutuptry
+
+      }
         
     }
 
-    public function get($data)
-  {
-    dd($data);
+
+    // public function store($request)
+    // {
+      
+    //  $user_id=[];
+    //   //dd($request);
+    //     foreach ( $request['teams'] as $key => $value) {
+    //       //dd($data['members']);
+          
+    //       //Create table User
+    //       foreach ($value['members'] as $key => $value_m) {
+    //       //dd($value_m);
+    //         $user = User::create([
+    //           'username' => $value_m['user']['username'],
+    //           'email' => $value_m['user']['email'],
+    //           'color' => $value_m['user']['color'],
+    //           'profilePicture' => $value_m['user']['profilePicture'],
+    //           'initials' => $value_m['user']['initials'],
+    //           'role' => $value_m['user']['role'],
+    //           'custom_role' => $value_m['user']['custom_role'],
+    //           'last_active' => $value_m['user']['last_active'],
+    //           'date_joined' => $value_m['user']['date_joined'],
+    //           'date_invited' => $value_m['user']['date_invited'],
+    //         ]);
+            
+    //         array_push($user_id, $user['id']);
+
+    //       }
+    //       $convert = implode(',', $user_id);
+    //        //Tutup table User
+
+    //       //  $this->validate([
+    //       //   'team_id' => 'unique:posts',
+    //       //   'name' => 'unique:posts|max:225',
+    //       // ]);
+
+    //       // dd($validatedData);
+
+          
+
+    //       //Create table Teams
+    //       $team = Teams::create([
+    //         'team_id' => $value['id'],
+    //         'name' => $value['name'],
+    //         'color' => $value['color'],
+    //         'avatar' => $value['avatar'] = "-",
+    //         'members' => $convert,
+            
+    //       ]);
+
+
+    //       $validatedData = Validator::make($request->all(),[
+    //         'team_id' => 'required|unique:posts',
+    //         'name' => 'required|string|max:225',
+    //       ]);
+
+    //       if ($validator->fails()) {
+    //           return redirect('input-form')
+    //             ->withErrors($validator)
+    //             ->withInput();
+    //       }
+
+          
+    //       // $team->validate([
+    //       //   'team_id' => 'unique:posts',
+    //       //   'name' => 'unique:posts|max:225',
+
+    //       // ]);
+           
+
+
+    //       //array_push($team_id, $team['id']);
+    //       //Tutup table Teams      
+    //     }
+       
+    //     //$get= $data['teams'];
+    //     //$work = ($get[0]);
+    //     //echo $get;
+    //     //dd($work['name']);
+
+    //     //return view('work.get', compact('work'));
+    //      return redirect()->route('tableWorkspace');
+        
+    // }
+
+  //   public function get($data)
+  // {
+  //   dd($data);
     
-  }
+  // }
 
     
 }
