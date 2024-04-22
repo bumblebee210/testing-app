@@ -51,23 +51,14 @@ class WorkspaceController extends Controller
         $response;
         $response=json_decode($response,true); 
         //dd($response);
-            //bagian create
-       // $data = Teams::all();
+        //bagian create
 
-         $validator = Validator::make($data->all(),[
-            'team_id' => 'unique:teams,team_id',
-            'name' => 'string|max:225',
-          ]);
+        try {
 
-          if ($validator->fails()) {
-              return redirect('tableWorkspace')
-                ->withErrors($validator)
-                ->withInput();
-          }
-      
-       // $request->validate(Teams::rules());
-
-        //try {
+          $validatedData = $request->validate([
+          'team_id' => 'unique:teams,team_id',
+          'name' => 'string|max:225',
+            ]);
 
         $user_id=[];
       //dd($request);
@@ -95,10 +86,6 @@ class WorkspaceController extends Controller
           }
           $convert = implode(',', $user_id);
 
-
-
-        
-
           //Create table Teams
           $team = Teams::create([
             'team_id' => $value['id'],
@@ -109,17 +96,15 @@ class WorkspaceController extends Controller
             
           ]);   
           
-       return redirect()->route('tableWorkspace');
+       //  return redirect()->route('tableWorkspace');
 
         }
-
-        
         //tutup create
-      // }catch(\Exception $e){
-      // // Tangani kasus duplikat atau kegagalan lainnya
-      // return redirect()->back()->withErrors(['msg' => 'Data sudah ada sebelumnya.'])->withInput();
-      // }
-      // return redirect()->route('tableWorkspace')->with('success', 'Data berhasil disimpan.');
+      }catch(\Exception $e){
+      // Tangani kasus duplikat atau kegagalan lainnya
+      return redirect()->back()->withErrors(['msg' => 'Data sudah ada sebelumnya.'])->withInput();
+      }
+      return redirect()->route('tableWorkspace')->with('success', 'Data berhasil disimpan.');
       //tutuptry
 
       }
