@@ -15,7 +15,7 @@ class CreateTasksTable extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->id('id');
-            $table->string('id_tasks');
+            $table->string('id_tasks')->unique();
             $table->string('name');
             $table->string('custom_id');
             $table->string('custom_item_id');

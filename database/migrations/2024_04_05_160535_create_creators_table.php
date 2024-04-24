@@ -15,7 +15,7 @@ class CreateCreatorsTable extends Migration
     {
         Schema::create('creators', function (Blueprint $table) {
             $table->id('id');
-            $table->string('id_creator');
+            $table->string('id_creator')->unique();
             $table->string('username');
             $table->string('color');
             $table->string('email');

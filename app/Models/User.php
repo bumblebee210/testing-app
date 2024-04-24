@@ -20,6 +20,7 @@ class User extends Authenticatable
     protected $table = 'users';
     protected $fillable = [
         'username',
+        'password',
         'email',
         'color',
         'profilePicture',
@@ -49,4 +50,7 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    protected $primaryKey = 'id';
+    protected $username = 'username'; 
 }

@@ -91,6 +91,125 @@
   }
 }
 
+.bg-judul
+{
+  background-image: url('../Icon/Rect-login.png');
+  background-size: 800px 800px;
+}
+
+.bg-forgot
+{
+  background-image: url('../Icon/Rect-forgot.png');
+  background-size: 100%;
+}
+
+.bg-reset
+{
+  background-image: url('../Icon/Rect-reset.png');
+   background-size: 867px 615px;
+}
+
+.judul
+{
+  font-size: 40px;
+  color: white;
+}
+
+.form-login span img
+{
+  position: absolute;
+  margin-top: -31px;
+  margin-left: -30px;
+
+}
+
+/**/
+
+.form-forgot
+{
+  margin-left: 457px;
+}
+
+/*coustum margin*/
+.custom-m-forgot
+{
+  margin-top: 60px !important;
+}
+
+.custom-m-reset
+{
+  margin-top: 60px !important;
+  margin-left: 55px !important;
+}
+
+.custom-mt
+{
+  margin-top: 150px !important;
+}
+.custom-mb
+{
+  margin-bottom: 293px !important;
+}
+.form-login h1
+{
+  margin-top: 110px;
+}
+
+.form-login form
+{
+  padding-left: 90px;
+}
+
+.form-login form button
+{
+  background-color: #8ED89E;
+  padding: 10px 30px 10px 30px;
+}
+
+.form-forgot button
+{
+  background-color: #8ED89E;
+  padding: 10px 30px 10px 30px;
+}
+
+.form-forgot button a
+{
+  text-decoration: none;
+  color: white;
+}
+
+.form-reset
+{
+  padding: 0px 50px 50px 0px;
+  margin-left: 50px;
+}
+
+.form-reset button
+{
+  margin-bottom: 43px;
+  padding: 10px 30px 10px 30px;
+}
+
+.form-reset span{
+  position: absolute;
+  margin-top: -35px;
+  margin-left: 10px;
+}
+
+
+.modal-body{
+  
+  border-radius: 20px 20px 20px 20px;
+  margin-top: -15px;
+  background-color: #F8FAF9;
+}
+
+.modal-body button a{
+  text-decoration: none;
+  color: white;
+}
+
+
 /*css loader*/
 .loading-screen {
     position: fixed;

@@ -15,7 +15,7 @@ class CreateStatusTasksTable extends Migration
     {
         Schema::create('status_tasks', function (Blueprint $table) {
             $table->id('id');
-            $table->string('id_status');
+            $table->string('id_status')->unique();
             $table->string('status');
             $table->string('color');
             $table->integer('orderindex');

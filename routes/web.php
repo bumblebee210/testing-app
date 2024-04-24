@@ -14,16 +14,22 @@ use App\Http\Controllers\ZoomController;
 */
 
 Route::get('/', function () {
-    return view('pages.dashboard');
+    return view('Login-page.login');
 });
+
+
+Route::get('/Login',[App\Http\Controllers\LoginController::class,'login'])->name('Login');
+
+Route::post('/Login/actionlogin',[App\Http\Controllers\LoginController::class,'actionlogin'])->name('actionLogin');
+
+Route::get('/Login/Forgot-Password',[App\Http\Controllers\LoginController::class,'forgotPass'])->name('Forgot');
+Route::get('/Login/Forgot-Password/Reset-Password',[App\Http\Controllers\LoginController::class,'resetPass'])->name('Reset');
 
 
 //Route bagian Workspace
 Route::get('/workspace/Getworkspace',[App\Http\Controllers\WorkspaceController::class,'get'])->name('getwork');
 Route::get('/workspace/Getworkspace/get',[App\Http\Controllers\WorkspaceController::class,'getWorkspace'])->name('getspace');
 Route::get('/workspace/table_workspace',[App\Http\Controllers\WorkspaceController::class,'index'])->name('tableWorkspace');
-//Route::get('/workspace/Getworkspace/Simpan',[App\Http\Controllers\WorkspaceController::class,'store'])->name('simpanget');
-
 
 //Route bagian Space
 Route::get('/space',[App\Http\Controllers\SpaceController::class,'index'])->name('space');
